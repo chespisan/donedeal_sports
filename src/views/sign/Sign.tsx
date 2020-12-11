@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { ActivityIndicator, ImageBackground, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { ActivityIndicator, Image, ImageBackground, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import WebView from 'react-native-webview';
-import backGround from '../../assets/imgs/background2.jpg';
-import SvgImageView from 'react-native-svg-img';
-
 
 const ActivityIndicatorElement = () => {
   return (
@@ -14,7 +11,7 @@ const ActivityIndicatorElement = () => {
 };
 
 const Sign = () => {
-  const { background, button, __text_button, text_dono, text_copy, container_tittle, _title_path_one, _title_path_two } = styles;
+  const { background, button, __text_button, text_dono, text_copy } = styles;
   const [showWebViewstate, setShowWebViewstate] = useState(false)
   const [visible, setVisible] = useState(false);
 
@@ -35,19 +32,11 @@ const Sign = () => {
           {visible ? <ActivityIndicatorElement /> : null}
         </>
         :
-        <ImageBackground style={background} source={backGround}>
+        <ImageBackground style={background} source={require('../../assets/imgs/background2.jpg')}>
           <Text style={text_dono}>Donedeal sports</Text>
-
-          <SvgImageView
-            width={200}
+          <Image  width={200}
             height={200}
-            source={require('../../assets/imgs/logo.svg')}
-          />
-          <View style={container_tittle}>
-            <Text style={_title_path_one}>DONEDEAL</Text>
-            <Text style={_title_path_two}>SPORTS</Text>
-          </View>
-
+            source={require('../../assets/imgs/logo.png')} />
           <TouchableHighlight style={button} onPress={handleGotWebView} >
             <Text style={__text_button}>Ingresar</Text>
           </TouchableHighlight>
@@ -75,23 +64,6 @@ const styles = StyleSheet.create({
     transform: [
       { rotate: '-90deg' },
     ],
-  },
-  container_tittle: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%'
-  },
-  _title_path_one: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'normal',
-  },
-  _title_path_two: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginLeft: 10
   },
   button: {
     backgroundColor: '#00a69c',

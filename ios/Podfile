@@ -12,6 +12,8 @@ target 'Donedeal' do
 
   pod 'RNSvgImage', :path => '../node_modules/react-native-svg-img'
 
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   target 'DonedealTests' do
     inherit! :complete
     # Pods for testing

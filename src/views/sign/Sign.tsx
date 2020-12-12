@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ActivityIndicator, Image, ImageBackground, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { ActivityIndicator, Image, ImageBackground, SafeAreaView, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import WebView from 'react-native-webview';
 
 const ActivityIndicatorElement = () => {
@@ -24,17 +24,20 @@ const Sign = () => {
       { showWebViewstate
         ?
         <>
-          <WebView
-            source={{ uri: 'https://www.donedealsports.com' }}
-            onLoadStart={() => setVisible(true)}
-            onLoad={() => setVisible(false)}
-          />
-          {visible ? <ActivityIndicatorElement /> : null}
+          <SafeAreaView style={{ flex: 0, backgroundColor: '#111111' }} />
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#f4f4f4' }}>
+            <WebView
+              source={{ uri: 'https://www.donedealsports.com' }}
+              onLoadStart={() => setVisible(true)}
+              onLoad={() => setVisible(false)}
+            />
+            {visible ? <ActivityIndicatorElement /> : null}
+          </SafeAreaView>
         </>
         :
         <ImageBackground style={background} source={require('../../assets/imgs/background2.jpg')}>
           <Text style={text_dono}>Donedeal sports</Text>
-          <Image  width={200}
+          <Image width={200}
             height={200}
             source={require('../../assets/imgs/logo.png')} />
           <TouchableHighlight style={button} onPress={handleGotWebView} >

@@ -41,7 +41,7 @@ const Sign = () => {
             height={200}
             source={require('../../assets/imgs/logo.png')} />
           <TouchableHighlight style={button} onPress={handleGotWebView} >
-            <Text style={__text_button}>Ingresar</Text>
+            <Text style={__text_button}>Go</Text>
           </TouchableHighlight>
 
           <Text style={text_copy}>Copyright (c) 2020</Text>
@@ -78,7 +78,9 @@ const styles = StyleSheet.create({
     width: '50%',
   },
   __text_button: {
-    color: '#fff'
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   text_copy: {
     color: '#fff',
